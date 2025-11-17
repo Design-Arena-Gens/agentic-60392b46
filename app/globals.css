@@ -1,0 +1,109 @@
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Noto Sans', 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; }
+
+.desktop-background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(120deg, #0f5bd5, #3ba0ff);
+  position: relative;
+  overflow: hidden;
+  color: #f5f7fb;
+}
+
+.desktop-icons {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  grid-template-columns: repeat(1, 96px);
+  grid-auto-rows: 88px;
+  gap: 8px;
+}
+
+.desktop-icon {
+  width: 96px;
+  height: 88px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  user-select: none;
+  transition: background 120ms ease;
+}
+.desktop-icon:hover { background: rgba(255,255,255,0.1); }
+.desktop-icon:active { background: rgba(255,255,255,0.18); }
+.desktop-icon .emoji { font-size: 28px; margin-bottom: 8px; }
+.desktop-icon .label { text-align: center; font-size: 12px; line-height: 1.2; word-break: break-word; }
+
+.window-frame {
+  position: absolute;
+  background: #ffffff;
+  color: #0d1117;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 4px 16px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+.window-titlebar {
+  height: 36px;
+  background: linear-gradient(180deg, #e9eef7, #d7e1f3);
+  border-bottom: 1px solid #c9d5ec;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+  user-select: none;
+}
+.window-title {
+  font-weight: 600;
+  font-size: 13px;
+  color: #0b2a5b;
+}
+.window-controls { margin-left: auto; display: flex; gap: 6px; }
+.win-btn {
+  width: 28px; height: 24px; border: 1px solid #b7c6e4; border-radius: 6px;
+  display: grid; place-items: center; background: #f5f9ff; cursor: pointer;
+}
+.win-btn:hover { background: #eaf3ff; }
+
+.window-body { background: #f7f9fc; height: calc(100% - 36px); overflow: auto; }
+
+.taskbar {
+  position: absolute; left: 0; right:0; bottom: 0; height: 44px;
+  background: rgba(20,25,35,0.55);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; gap: 8px; padding: 6px;
+  backdrop-filter: blur(10px);
+}
+.start-button { min-width: 92px; height: 32px; border-radius: 8px; display:flex; align-items:center; gap:8px; padding:0 10px; cursor:pointer; background:#e7efff; color:#0b2a5b; border:1px solid #b7c6e4; font-weight:600; }
+.start-button:hover { background:#dbe7ff; }
+.task-item { min-width: 120px; max-width: 220px; flex: 0 1 auto; height: 32px; border-radius: 8px; padding: 0 10px; display:flex; align-items:center; gap:8px; cursor:pointer; background:#e7efff; color:#0b2a5b; border:1px solid #b7c6e4; }
+.task-item.inactive { background:#eef3ff; color:#27457a; opacity:0.8; }
+.task-spacer { flex:1; }
+.task-clock { color:#e6efff; font-weight:600; font-variant-numeric: tabular-nums; }
+
+.start-menu {
+  position: absolute; left: 8px; bottom: 52px; width: 320px; border-radius: 12px;
+  background: #f2f6ff; border: 1px solid #b7c6e4; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+.start-menu-header { background: linear-gradient(180deg, #dde8ff, #cfe0ff); padding: 14px; font-weight:700; color:#0b2a5b; border-bottom:1px solid #b7c6e4; }
+.start-menu-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 10px; }
+.start-card { background:#ffffff; border:1px solid #cfdbf2; border-radius: 10px; padding: 10px; cursor: pointer; display:flex; flex-direction:column; align-items:center; gap:6px; color:#0b2a5b; }
+.start-card:hover { background:#f6f9ff; }
+.start-card .emoji { font-size: 24px; }
+
+.app-shell { padding: 12px; height: 100%; }
+
+.notepad-toolbar { display:flex; gap:8px; padding: 8px; background:#ffffff; border-bottom:1px solid #cfdbf2; }
+.notepad-editor { width: 100%; height: calc(100% - 48px); resize: none; border: none; outline: none; padding: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 14px; background:#fbfdff; }
+
+.terminal { background: #0d1117; color: #c9d1d9; height: 100%; padding: 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; font-size: 13px; }
+.terminal-line { white-space: pre-wrap; }
+.terminal-input { width: 100%; background: transparent; border: none; outline: none; color: #f0f6fc; }
+
+.files-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: 10px; padding: 10px; }
+.file-card { background:#ffffff; border:1px solid #cfdbf2; border-radius: 10px; padding: 10px; cursor: pointer; display:flex; flex-direction:column; gap:6px; color:#0b2a5b; }
+.file-card:hover { background:#f6f9ff; }
